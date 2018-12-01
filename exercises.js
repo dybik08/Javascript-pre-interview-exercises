@@ -106,3 +106,28 @@ const checkPalindrom = (stringToTest) => {
     stringToTest = stringToTest.replace(/\W/g, '').toLowerCase();
     return stringToTest === stringToTest.split('').reverse().join('');
 };
+
+//Question: How will you remove duplicates of an array and return an array of only unique elements
+
+const arrayWithDuplicates = [1, 2, 3, 5, 1, 5, 9, 1, 2, 8];
+
+Array.from(new Set(arrayWithDuplicates));
+
+//Question: Write a recursive function that performs a binary search and tells where you can find the number you are looking for(index).
+
+const binarySearch = (arr, searchingValue, firstIndex=0, lastIndex=(arr.length-1)) => {
+    //Mid point is an index that is currently checked for searchingValue occurance.
+    let midPoint = Math.floor(((lastIndex-firstIndex)/2) + firstIndex);
+
+    switch (true) {
+        case arr[midPoint] === searchingValue:
+            return `The number that you are looking for can be found at index number ${midPoint} in your array`;
+        case lastIndex - firstIndex === 0:
+            return false;
+        case arr[midPoint] < searchingValue:
+            return binarySearch(arr, searchingValue, midPoint+1, lastIndex)
+        case arr[midPoint] > searchingValue:
+            return binarySearch(arr, searchingValue, firstIndex, midPoint)
+    }
+};
+let arrayToCheck = [1,2,3,4,5,6,7,8,9,10];

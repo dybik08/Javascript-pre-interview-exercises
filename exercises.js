@@ -131,3 +131,33 @@ const binarySearch = (arr, searchingValue, firstIndex=0, lastIndex=(arr.length-1
     }
 };
 let arrayToCheck = [1,2,3,4,5,6,7,8,9,10];
+
+//Question: How would you merge two sorted array?
+
+const mergeSortedArrays = (firstArray, secondArray) => {
+    let merged = [];
+    let indexInFirstArray = 0;
+    let indexInSecondArray = 0;
+    let currentIndex = 0;
+
+    while (currentIndex < (firstArray.length + secondArray.length)) {
+
+        let isArray1IsDepleted = indexInFirstArray >= firstArray.length;
+        let isArray2IsDepleted = indexInSecondArray >= secondArray.length;
+
+        if (!isArray1IsDepleted && (isArray2IsDepleted || (firstArray[indexInFirstArray] < secondArray[indexInSecondArray]))) {
+            merged[currentIndex] = firstArray[indexInFirstArray];
+            indexInFirstArray++
+        } else {
+            merged[currentIndex] = secondArray[indexInSecondArray];
+            indexInSecondArray++;
+        }
+        currentIndex++;
+    }
+    // remove duplicates from merged array
+    return merged.filter((elem, pos, arr) => {
+        return arr.indexOf(elem) === pos;
+    });
+
+};
+

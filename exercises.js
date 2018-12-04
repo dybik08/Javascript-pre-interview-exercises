@@ -172,7 +172,6 @@ const swapNumb = (a, b) => {
 };
 // If you wanna know wtf happend here check JavaScript Bitwise Operators
 
-swapNumb(2, 3);
 
 //Question:  How would you reverse a string in JavaScript?
 const reverse = (stringToReverse) => {
@@ -182,3 +181,43 @@ const reverse = (stringToReverse) => {
         return reverse(stringToReverse.substr(1)) + stringToReverse.charAt(0);
     }
 };
+
+//Question: How could you find the first non repeating char in a string?
+
+const firstNonRepeatChar =(stringToCheck)=>{
+    let len = stringToCheck.length,
+        char,
+        charCounter = {};
+    for(let i =0; i<len; i++){
+        char = stringToCheck[i];
+        if(charCounter[char]){
+            charCounter[char]++;
+        }
+        else
+            charCounter[char] = 1;
+    }
+    for (let j in charCounter){
+        if (charCounter[j]===1)
+            return j;
+    }
+};
+
+//Question: From a unsorted array, check whether there are any two numbers that will sum up to a given number?
+const sumFinder = (arr, sum) =>{
+    let differ = {},
+        len = arr.length,
+        substract;
+
+    for(let i =0; i<len; i++){
+        substract = sum - arr[i];
+        if(differ[substract])
+            return true;
+        else
+            differ[arr[i]] = true;
+    }
+    return false;
+};
+
+
+
+console.log(sumFinder([6,4,3,2,1,7], 2))

@@ -218,6 +218,36 @@ const sumFinder = (arr, sum) =>{
     return false;
 };
 
+// TIME FOR RECURSIVES!!
+// Write a JavaScript program to calculate the factorial of a number.
 
+const fractional = (number) => {
+    if(number === 0){
+        return 1
+    }
+    return number * fractional(number-1)
+};
 
-console.log(sumFinder([6,4,3,2,1,7], 2))
+// Write a JavaScript program to find the greatest common divisor (gcd) of two positive numbers.
+
+const gcd = (a, b) => {
+    if ( ! b) {
+        return a;
+    }
+    return gcd(b, a % b);
+};
+
+// Write a JavaScript program to get the integers in range (x, y)
+
+const integersInRange = (start_num, end_num) => {
+    if (end_num - start_num === 2){
+        return [start_num + 1];
+    }
+    else{
+        let list = integersInRange(start_num, end_num - 1);
+        list.push(end_num - 1);
+        return list;
+    }
+};
+
+console.log(integersInRange(2, 7))

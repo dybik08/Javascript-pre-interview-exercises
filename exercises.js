@@ -161,3 +161,24 @@ const mergeSortedArrays = (firstArray, secondArray) => {
 
 };
 
+//Question: How would you swap two numbers without using a temporary variable?
+
+const swapNumb = (a, b) => {
+    console.log('before swap: ','a: ', a, 'b: ', b);
+    b = b ^ a;
+    a = a ^ b;
+    b = a ^ b;
+    console.log('after swap: ','a: ', a, 'b: ', b);
+};
+// If you wanna know wtf happend here check JavaScript Bitwise Operators
+
+swapNumb(2, 3);
+
+//Question:  How would you reverse a string in JavaScript?
+const reverse = (stringToReverse) => {
+    if (stringToReverse === "") {
+        return "";
+    } else {
+        return reverse(stringToReverse.substr(1)) + stringToReverse.charAt(0);
+    }
+};

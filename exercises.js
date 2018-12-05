@@ -241,13 +241,25 @@ const gcd = (a, b) => {
 
 const integersInRange = (start_num, end_num) => {
     if (end_num - start_num === 2){
+        console.log(start_num, end_num,"in if")
         return [start_num + 1];
     }
     else{
         let list = integersInRange(start_num, end_num - 1);
+        console.log(list)
+        console.log(start_num, end_num, "in else")
         list.push(end_num - 1);
         return list;
     }
 };
 
-console.log(integersInRange(2, 7))
+//Write a JavaScript program to compute the sum of an array of integers
+
+const calculateArraysSum = (arrayToSum) => {
+    if (arrayToSum.length === 1) {
+        return arrayToSum[0];
+    }
+    else {
+        return arrayToSum.pop() + calculateArraysSum(arrayToSum);
+    }
+};

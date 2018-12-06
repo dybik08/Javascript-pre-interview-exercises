@@ -199,7 +199,47 @@ let dog = {
     }
 };
 let sayName = dog.sayName
-sayName()
+// sayName()
 
 // all you have to do is to bind sayName context to dog object like this:
 // let sayName = dog.sayName.bind(dog) and..fixed! :)
+
+// I want this code to log out “hey amy”, but it logs out “hey arnold” - why?
+
+function greet (person) {
+    if (person == { name: 'amy' }) {
+        return 'hey amy'
+    } else {
+        return 'hey arnold'
+    }
+}
+
+// 2 diffrent objects - 2 diffrent locations in memory and you can't compare them directly, so to fix it you have to do:
+// (person.name === 'amy' )
+
+// I want my dog to bark(), but instead, I get an error. Why?
+function Dog (name) {
+    this.name = name
+}
+Dog.bark = function () {
+    console.log(this.name + ' says woof')
+}
+let fido = new Dog('fido')
+let boundedBark = Dog.bark.bind(fido)
+// boundedBark()
+
+// ofc you can bind this context by Dog.bark.bind(fido) but why so if you can be pro
+// with class keyword you can elegantly fix it doing this:
+
+class fixedDog {
+    constructor (name) {
+        this.name = name
+    }
+
+    bark () {
+        console.log(this.name + ' says woof')
+    }
+}
+
+let sparky = new fixedDog('sparky')
+// sparky.bark()

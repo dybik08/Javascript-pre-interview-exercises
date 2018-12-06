@@ -190,5 +190,16 @@ const sumFinder = (arr, sum) =>{
     return false;
 };
 
+// I want this code to log out “doggo”, but it logs out undefined!
 
+let dog = {
+    name: 'doggo',
+    sayName () {
+        console.log(this.name)
+    }
+};
+let sayName = dog.sayName
+sayName()
 
+// all you have to do is to bind sayName context to dog object like this:
+// let sayName = dog.sayName.bind(dog) and..fixed! :)

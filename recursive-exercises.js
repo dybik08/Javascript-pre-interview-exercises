@@ -93,3 +93,42 @@ const fibonacciSequenceGenerator = (n) => {
     }
 };
 
+// Write a JavaScript program to check whether a number is even or not.
+
+const isEven = (numberToCheck) => {
+    if (numberToCheck < 0){
+        numberToCheck = Math.abs(numberToCheck);
+    }
+    if (numberToCheck === 0){
+        return true;
+    }
+    if (numberToCheck === 1){
+        return false;
+    }
+    else {
+        numberToCheck = numberToCheck-2;
+        return isEven(numberToCheck);
+    }
+};
+
+// Write a merge sort program in JavaScript
+
+Array.prototype.merge_Sort = function () {
+    if (this.length <= 1) {
+        return this;
+    }
+
+    let half = parseInt(this.length / 2);
+    let left = this.slice(0, half).merge_Sort();
+    let right = this.slice(half, this.length).merge_Sort();
+    let merge = function (left, right) {
+        let array = [];
+        while (left.length > 0 && right.length > 0) {
+            array.push((left[0] <= right[0]) ? left.shift() : right.shift());
+        }
+        return array.concat(left).concat(right);
+    };
+    return merge(left, right);
+};
+
+let a = [34,7,23,32,5,62];

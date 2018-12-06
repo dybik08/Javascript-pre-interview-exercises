@@ -21,13 +21,10 @@ const gcd = (a, b) => {
 
 const integersInRange = (start_num, end_num) => {
     if (end_num - start_num === 2){
-        console.log(start_num, end_num,"in if")
         return [start_num + 1];
     }
     else{
         let list = integersInRange(start_num, end_num - 1);
-        console.log(list)
-        console.log(start_num, end_num, "in else")
         list.push(end_num - 1);
         return list;
     }
@@ -132,3 +129,4 @@ Array.prototype.merge_Sort = function () {
 };
 
 let a = [34,7,23,32,5,62];
+

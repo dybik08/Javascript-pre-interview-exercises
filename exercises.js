@@ -243,3 +243,21 @@ class fixedDog {
 
 let sparky = new fixedDog('sparky')
 // sparky.bark()
+
+
+// Suppose an array of numbers is given. Create method that creates a palindrome out of your array
+
+Array.prototype.toPalindrome = function() {
+    const result = this.slice();
+    for ( let i = this.length - 2; i >= 0; --i ) {
+        result.push( this[i] );
+    }
+    return result;
+};
+
+const arr = [1,2,3];
+
+const arr2 = arr.toPalindrome()
+
+const arr3 = arr2.toPalindrome()
+

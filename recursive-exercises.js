@@ -130,3 +130,29 @@ Array.prototype.merge_Sort = function () {
 
 let a = [34,7,23,32,5,62];
 
+// Create function that works with: sum(1,2) and sum(1)(2) or any number of arguments
+
+let sum = (arr) => arr.reduce((a, b) => a + b);
+let addGenerator = (numArgs, prevArgs) => {
+    return function () {
+        let totalArgs = prevArgs.concat(Array.from(arguments));
+        if (totalArgs.length === numArgs) {
+            return sum(totalArgs);
+        }
+        return addGenerator(numArgs, totalArgs);
+    };
+};
+
+let add = addGenerator(2, []);
+
+add(2, 5); // 7
+add(2)(5); // 7
+add()(2, 5); // 7
+add()(2)(5); // 7
+add()()(2)(5); // 7
+
+const aT = [1,2,3,4,5]
+
+// aT.forEach(function (value) {
+//     console.log(value)
+// });

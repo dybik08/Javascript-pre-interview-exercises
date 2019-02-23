@@ -261,3 +261,22 @@ const arr2 = arr.toPalindrome()
 
 const arr3 = arr2.toPalindrome()
 
+// pipe functions - one of functional programing paradigms
+// https://medium.com/@venomnert/pipe-function-in-javascript-8a22097a538e
+
+const _pipe = (a, b) => (arg) => b(a(arg));
+const pipeImproved = (...functions) => functions.reduce(_pipe)
+
+const pipe = (...functions) => (arguments) =>
+    functions.reduce((result, currentFn) => currentFn(result), arguments)
+
+
+const addSpaceBeforeCurrency = (str) => str.replace(/(€|zł|£|\$)/g, ' $1');
+const addSpacesAroundEqualSign = (str) => str.replace(/=/g, ' = ');
+
+const functionArray = [addSpaceBeforeCurrency, addSpacesAroundEqualSign, reverseWordsInPlace, reverseString];
+
+const piped = pipeImproved(...functionArray)('1000zł=milijon dukatów')
+
+console.log(piped);
+

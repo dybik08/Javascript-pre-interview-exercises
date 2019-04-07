@@ -21,15 +21,18 @@ const gcd = (a, b) => {
 
 const integersInRange = (start_num, end_num) => {
     if (end_num - start_num === 2){
+        console.log(start_num + 1, 'first?')
         return [start_num + 1];
     }
     else{
         let list = integersInRange(start_num, end_num - 1);
         list.push(end_num - 1);
+        console.log(list, 'list')
         return list;
     }
 };
 
+console.log(integersInRange(4,20))
 //Write a JavaScript program to compute the sum of an array of integers
 
 const calculateArraysSum = (arrayToSum) => {

@@ -278,5 +278,49 @@ const functionArray = [addSpaceBeforeCurrency, addSpacesAroundEqualSign, reverse
 
 const piped = pipeImproved(...functionArray)('1000zł=milijon dukatów')
 
-console.log(piped);
+// console.log(piped);
+
+// Create your own implementation of HOF - fillter
+
+function filter(arr, predicate) {
+    let idx = -1,
+        len = arr.length,
+        result = [];
+    while (++idx < len) {
+        let value = arr[idx];
+        if (predicate(value, idx, this)) {
+            result.push(value);
+        }
+    }
+    return result;
+}
+
+// Create your own implementation of HOF - reduce
+
+function reduce(arr, fn, accumulator) {
+    let idx = -1,
+        len = arr.length;
+    if (!accumulator && len > 0) {
+        accumulator = arr[++idx];
+    }
+    while (++idx < len) {
+        accumulator = fn(accumulator,
+            arr[idx], idx, arr);
+    }
+    return accumulator;
+}
+
+// Create your own implementation of HOF - map
+
+function map(arr, fn) {
+    let idx = 0, index = 0,
+        len = arr.length,
+        result = new Array(len);
+    while (++idx < len) {
+        result[index++] = fn(arr[idx-1], idx, arr);
+    }
+    return result;
+}
+
+
 

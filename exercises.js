@@ -322,5 +322,25 @@ function map(arr, fn) {
     return result;
 }
 
+const xArray = [3,6,4,6,2];
+const yArray = [2,2,5,7,7];
+
+// Create algorithm that calc polygon area
+
+function polygonArea(X, Y, numPoints) {
+    let area = 0;         // Accumulates area in the loop
+    let j = numPoints-1;  // The last vertex is the 'previous' one to the first
+
+    for (let i=0; i<numPoints; i++)
+    { area = area +  (X[j]+X[i]) * (Y[j]-Y[i]);
+        j = i;  //j is previous vertex to i
+    }
+    return area/-2;
+}
+
+const area = polygonArea(xArray,yArray, 5);
+
+console.log(area, 'pole');
+
 
 

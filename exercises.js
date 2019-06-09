@@ -340,7 +340,86 @@ function polygonArea(X, Y, numPoints) {
 
 const area = polygonArea(xArray,yArray, 5);
 
-console.log(area, 'pole');
+// Implement binary tree (using classes)
+
+class Node{
+    constructor(val) {
+        this.value = val;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+class BinarySearchTree {
+    constructor(array){
+        this.root = null;
+        this.constructTree(array);
+    }
+
+    sortedData = [];
+
+    constructTree(array) {
+        for(let i = 0; i<array.length; i++){
+            this.setNode(array[i])
+        }
+    }
+
+    setNode(val){
+        let root = this.root;
+
+        if(!root){
+            this.root = new Node(val);
+            return;
+        }
+
+        let currentNode = root;
+        let newNode = new Node(val);
+
+        while(currentNode){
+            if(val < currentNode.value){
+                if(!currentNode.left){
+                    currentNode.left = newNode;
+                    break;
+                }
+                else{
+                    currentNode = currentNode.left;
+                }
+            }
+            else{
+                if(!currentNode.right){
+                    currentNode.right = newNode;
+                    break;
+                }
+                else{
+                    currentNode = currentNode.right;
+                }
+            }
+        }
+    }
+
+    sortInOrder(node){
+            if(node){
+                this.sortInOrder(node.left);
+                this.sortedData.push(node.value);
+                this.sortInOrder(node.right);
+            }
+            return dataToBeSorted = this.sortedData;
+    }
+
+    sortInReverseOrder(node){
+        if(node){
+            this.sortInReverseOrder(node.right);
+            this.sortedData.push(node.value);
+            this.sortInReverseOrder(node.left);
+        }
+        return dataToBeSorted = this.sortedData;
+    }
+}
+
+
+
+
+
 
 
 

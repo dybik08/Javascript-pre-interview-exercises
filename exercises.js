@@ -354,9 +354,8 @@ class BinarySearchTree {
     constructor(array){
         this.root = null;
         this.constructTree(array);
+        this.sortedData = [];
     }
-
-    sortedData = [];
 
     constructTree(array) {
         for(let i = 0; i<array.length; i++){
@@ -416,8 +415,19 @@ class BinarySearchTree {
     }
 }
 
+// Implement recursive fizzbuzz with tail-call optimization
 
-
+const fizzBuzzPrinterR = (i = 1, maxCalls) => {
+    if(i === maxCalls + 1) return;
+    else if(i % 3 === 0 && i % 5 === 0) {
+        console.log("fizzbuzz");
+    } else if (i % 3 === 0) {
+        console.log("fizz");
+    } else if (i % 5 === 0) {
+        console.log("buzz");
+    }
+    fizzBuzzPrinterR(i + 1, maxCalls);
+};
 
 
 

@@ -16,6 +16,8 @@ https://auth0.com/blog/glossary-of-modern-javascript-concepts/
 6. Big O notation is used in Computer Science to describe the performance or complexity of an algorithm - read more about in article below<br>
 https://rob-bell.net/2009/06/a-beginners-guide-to-big-o-notation/
 
+7. https://github.com/30-seconds/30-seconds-of-code - You can find amazing js tricks for everyday work.
+
 ## Exercises:
 In this repository you can find most common interview exercises with anwsers, just head to one of the files.<br>
 Place don't copy/paste the code but think about it, write pseudo-code, the right code and then check the solution.
